@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV-matcHER — Encontrá trabajo en Argentina</title>
+<meta name="description" content="Optimizá tu búsqueda y postulate donde tenés más chances. Score ATS, puestos recomendados y tips para mejorar tu CV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@300;400;500;600;700;800&family=Mona+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #0d0b10;
+  --bg2:      #141118;
+  --bg3:      #1c1822;
+  --bg4:      #231f2b;
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.13);
+  --text:     #f2edf8;
+  --text2:    #9b8fac;
+  --text3:    #5a5066;
+  --pink:     #f03e8a;
+  --pink2:    #ff5fa0;
+  --pink3:    #c42f6e;
+  --pink-dim: rgba(240,62,138,0.13);
+  --pink-dim2:rgba(240,62,138,0.07);
+  --hot:      #ff2d6b;
+  --lavender: #c9b8f0;
+  --lav-dim:  rgba(201,184,240,0.1);
+  --green:    #3ddba0;
+  --green-dim:rgba(61,219,160,0.1);
+  --red:      #ff5e5e;
+  --red-dim:  rgba(255,94,94,0.1);
+  --amber:    #ffb347;
+  --r: 12px;
+  --r-sm: 8px;
+  --head: 'Cabinet Grotesk', sans-serif;
+  --body: 'Mona Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.container { max-width: 700px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+/* ── HEADER ── */
+header { padding: 28px 0 22px; margin-bottom: 44px; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; }
+.logo {
+  font-family: var(--head);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  display: flex; align-items: center; gap: 9px;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, var(--pink), var(--hot));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.logo-text { color: var(--text); }
+.logo-sub { color: var(--text3); font-weight: 400; }
+.header-tag {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--text3);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+/* ── HERO ── */
+.hero { margin-bottom: 48px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--pink);
+  background: var(--pink-dim); border: 1px solid rgba(240,62,138,0.2);
+  padding: 4px 12px; border-radius: 99px; margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: var(--head);
+  font-size: clamp(30px, 6vw, 50px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.hero h1 em { font-style: normal; color: var(--pink); }
+.hero p {
+  font-size: 16px; font-weight: 300;
+  color: var(--text2); max-width: 460px; line-height: 1.65;
+}
+
+/* ── STEP TABS ── */
+.steps-nav {
+  display: flex; gap: 3px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 4px; margin-bottom: 28px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.steps-nav::-webkit-scrollbar { display: none; }
+.step-tab {
+  flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 12px; border-radius: 9px;
+  border: none; background: transparent;
+  color: var(--text3);
+  font-family: var(--body); font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.18s;
+  white-space: nowrap;
+}
+.step-tab .n {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--bg3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+  transition: all 0.18s;
+}
+.step-tab.active { background: var(--bg3); color: var(--text); border: 1px solid var(--border2); }
+.step-tab.active .n { background: var(--pink); color: #fff; }
+.step-tab.done { color: var(--text2); }
+.step-tab.done .n { background: var(--pink-dim); color: var(--pink); }
+.step-lbl { display: none; }
+@media (min-width: 480px) { .step-lbl { display: inline; } }
+
+/* ── CARDS ── */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 24px; margin-bottom: 16px;
+  animation: up 0.28s ease;
+}
+@keyframes up { from { opacity:0; transform:translateY(7px); } to { opacity:1; transform:translateY(0); } }
+.card-title {
+  font-family: var(--head);
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -0.3px; color: var(--text);
+  margin-bottom: 3px;
+}
+.card-sub { font-size: 13px; font-weight: 300; color: var(--text2); margin-bottom: 22px; }
+
+/* ── FORM ── */
+label {
+  display: block; font-size: 11px; font-weight: 600;
+  color: var(--text3); letter-spacing: 0.05em;
+  text-transform: uppercase; margin-bottom: 7px;
+}
+textarea, input[type=text], select {
+  width: 100%;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--r-sm); color: var(--text);
+  font-family: var(--body); font-size: 14px; font-weight: 300;
+  padding: 11px 14px; transition: border-color 0.18s;
+  resize: vertical; -webkit-appearance: none;
+}
+textarea { min-height: 160px; line-height: 1.55; }
+textarea:focus, input:focus, select:focus { outline: none; border-color: var(--pink); }
+textarea::placeholder, input::placeholder { color: var(--text3); font-weight: 300; }
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%235a5066' d='M5 7L0 2h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+  padding-right: 32px; cursor: pointer;
+}
+select option { background: var(--bg3); }
+.field { margin-bottom: 16px; }
+
+/* ── INPUT TABS ── */
+.itabs { display: flex; gap: 3px; margin-bottom: 16px; background: var(--bg3); border-radius: var(--r-sm); padding: 3px; border: 1px solid var(--border); width: fit-content; }
+.itab { padding: 6px 14px; border-radius: 6px; border: none; background: transparent; color: var(--text3); font-family: var(--body); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.18s; }
+.itab.active { background: var(--bg2); color: var(--text); border: 1px solid var(--border2); }
+
+/* ── FILE DROP ── */
+.drop {
+  border: 1.5px dashed var(--border2); border-radius: var(--r-sm);
+  padding: 24px; text-align: center; cursor: pointer;
+  transition: all 0.2s; background: var(--bg3); position: relative;
+}
+.drop:hover, .drop.over { border-color: var(--pink); background: var(--pink-dim2); }
+.drop input[type=file] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 2; }
+.drop-icon { font-size: 26px; margin-bottom: 8px; }
+.drop-text { font-size: 13px; font-weight: 300; color: var(--text2); }
+.drop-text strong { color: var(--pink); font-weight: 500; }
+
+/* ── PORTALES GRID ── */
+.portal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(138px, 1fr)); gap: 7px; margin-top: 8px; }
+.portal-pill {
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 12px; border-radius: var(--r-sm);
+  border: 1px solid var(--border); background: var(--bg3);
+  cursor: pointer; transition: all 0.18s;
+  font-size: 13px; font-weight: 500; color: var(--text2);
+  user-select: none;
+}
+.portal-pill.on { border-color: var(--pink); background: var(--pink-dim); color: var(--text); }
+.pcheck { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.18s; font-size: 10px; }
+.portal-pill.on .pcheck { background: var(--pink); border-color: var(--pink); color: #fff; }
+
+/* ── PREFS ROW ── */
+.prefs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+@media (max-width: 460px) { .prefs-row { grid-template-columns: 1fr; } }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 11px 20px; border-radius: var(--r-sm);
+  border: 1px solid var(--border2); background: transparent;
+  color: var(--text); font-family: var(--body);
+  font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: all 0.17s; white-space: nowrap;
+}
+.btn:hover { background: var(--bg3); }
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.38; cursor: not-allowed; transform: none; }
+.btn-pink { background: var(--pink); border-color: var(--pink); color: #fff; font-weight: 600; }
+.btn-pink:hover { background: var(--pink2); border-color: var(--pink2); }
+.btn-sm { padding: 7px 14px; font-size: 13px; }
+.btn-row { display: flex; gap: 9px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
+
+/* ── LOADING ── */
+.loading { display: flex; align-items: center; gap: 9px; color: var(--text2); font-size: 13px; font-weight: 300; }
+.dots { display: flex; gap: 4px; }
+.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--pink); animation: blink 1.2s infinite; }
+.dot:nth-child(2) { animation-delay: .2s; }
+.dot:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%,80%,100%{opacity:.15} 40%{opacity:1} }
+
+/* ── CHIPS ── */
+.chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 12px; border-radius: 99px;
+  font-size: 12px; font-weight: 500; border: 1px solid;
+}
+.chip-lav { background: var(--lav-dim); border-color: rgba(201,184,240,0.2); color: var(--lavender); }
+.chip-pink { background: var(--pink-dim); border-color: rgba(240,62,138,0.2); color: var(--pink2); }
+.chip-green { background: var(--green-dim); border-color: rgba(61,219,160,0.2); color: var(--green); }
+.chip-red { background: var(--red-dim); border-color: rgba(255,94,94,0.2); color: var(--red); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+
+/* ── PORTAL RESULT ROWS ── */
+.portal-row {
+  padding: 13px 14px; border-radius: var(--r-sm);
+  border: 1px solid var(--border); background: var(--bg3);
+  margin-bottom: 8px; transition: border-color 0.15s;
+}
+.portal-row:hover { border-color: var(--border2); }
+.portal-row-name { font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 7px; letter-spacing: 0.01em; }
+.portal-links { display: flex; flex-wrap: wrap; gap: 5px; }
+.plink {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 11px; border-radius: 99px;
+  background: var(--pink-dim); border: 1px solid rgba(240,62,138,0.18);
+  color: var(--pink2); font-size: 12px; font-weight: 500;
+  text-decoration: none; transition: background 0.15s;
+}
+.plink:hover { background: rgba(240,62,138,0.22); }
+
+/* ── SCORE ── */
+.score-block {
+  display: flex; align-items: center; gap: 22px;
+  padding: 20px; background: var(--bg3);
+  border-radius: var(--r); border: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+@media (max-width: 460px) { .score-block { flex-direction: column; align-items: flex-start; gap: 14px; } }
+.score-ring { position: relative; width: 82px; height: 82px; flex-shrink: 0; }
+.score-ring svg { transform: rotate(-90deg); }
+.ring-bg { fill: none; stroke: var(--bg4); stroke-width: 6; }
+.ring-fill { fill: none; stroke-width: 6; stroke-linecap: round; transition: stroke-dasharray 0.9s cubic-bezier(.4,0,.2,1); }
+.score-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.score-n { font-family: var(--head); font-size: 24px; font-weight: 800; line-height: 1; }
+.score-pct { font-size: 11px; color: var(--text3); }
+.score-info { flex: 1; }
+.score-verdict { font-family: var(--head); font-size: 18px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
+.score-desc { font-size: 13px; font-weight: 300; color: var(--text2); line-height: 1.5; }
+
+.tip-box {
+  padding: 14px 16px;
+  background: var(--pink-dim); border: 1px solid rgba(240,62,138,0.18);
+  border-radius: var(--r-sm); font-size: 13px; font-weight: 300;
+  color: var(--text); line-height: 1.6; margin-bottom: 18px;
+}
+.tip-box strong { color: var(--pink2); font-weight: 600; }
+
+.kw-label { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text3); margin-bottom: 8px; }
+
+.stat-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 11px 14px; background: var(--bg3);
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  font-size: 13px; font-weight: 300; color: var(--text2);
+  margin-bottom: 7px; line-height: 1.5;
+}
+.stat-ico { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+.tip-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px; background: var(--bg3);
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  margin-bottom: 7px; line-height: 1.5;
+}
+.tip-item-icon { font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.tip-item-body { flex: 1; }
+.tip-item-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.tip-item-desc { font-size: 12px; font-weight: 300; color: var(--text2); }
+
+/* ── PROFILE PREVIEW ── */
+.profile-band {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px; background: var(--bg3);
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  margin-bottom: 18px;
+}
+.profile-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), #9b3fcc);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--head); font-size: 18px; font-weight: 800; color: #fff;
+  flex-shrink: 0;
+}
+.profile-name { font-family: var(--head); font-size: 15px; font-weight: 700; color: var(--text); }
+.profile-level { font-size: 12px; color: var(--pink2); font-weight: 500; margin-top: 1px; }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--bg3); border: 1px solid var(--border2);
+  color: var(--text); padding: 10px 18px;
+  border-radius: var(--r-sm); font-size: 13px; font-weight: 500;
+  z-index: 999; opacity: 0; transition: all 0.22s;
+  white-space: nowrap; pointer-events: none; max-width: 90vw;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── FOOTER ── */
+footer { padding: 44px 0 32px; border-top: 1px solid var(--border); margin-top: 64px; text-align: center; color: var(--text3); font-size: 12px; font-weight: 300; line-height: 1.8; }
+footer a { color: var(--text2); text-decoration: none; }
+footer a:hover { color: var(--pink); }
+
+.hidden { display: none !important; }
+
+@media (max-width: 480px) {
+  .card { padding: 18px 16px; }
+  .hero h1 { letter-spacing: -1px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-mark">✦</div>
+        <span class="logo-text">CV-matc<span style="color:var(--pink)">HER</span></span>
+      </div>
+      <span class="header-tag">Argentina · Beta</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-eyebrow">✦ Gratis · Sin registro</div>
+    <h1>Optimizá tu búsqueda<br>y postulate donde<br>tenés más <em>chances</em> 😎</h1>
+    <p>Analizá tu perfil, descubrí qué puestos buscar y calculá tu score ATS antes de postularte.</p>
+  </div>
+
+  <!-- STEP TABS -->
+  <div class="steps-nav">
+    <button class="step-tab active" id="tab-1" onclick="goTo(1)"><span class="n">1</span><span class="step-lbl">Tu CV</span></button>
+    <button class="step-tab" id="tab-2" onclick="goTo(2)"><span class="n">2</span><span class="step-lbl">Preferencias</span></button>
+    <button class="step-tab" id="tab-3" onclick="goTo(3)"><span class="n">3</span><span class="step-lbl">Puestos</span></button>
+    <button class="step-tab" id="tab-4" onclick="goTo(4)"><span class="n">4</span><span class="step-lbl">Score ATS</span></button>
+  </div>
+
+  <!-- ══════════ STEP 1 ══════════ -->
+  <div id="s1">
+    <div class="card">
+      <div class="card-title">Tu CV</div>
+      <div class="card-sub">Pegá el texto o subí el archivo. Cuanto más completo, mejor el análisis.</div>
+
+      <div class="itabs">
+        <button class="itab active" onclick="setCVMode('text',this)">Pegar texto</button>
+        <button class="itab" onclick="setCVMode('file',this)">Subir archivo</button>
+      </div>
+
+      <div id="cv-text-mode">
+        <div class="field">
+          <label>Contenido del CV</label>
+          <textarea id="cv-input" placeholder="Ej: María García — Diseñadora UX/UI&#10;Figma, Adobe XD, Illustrator · 3 años de experiencia&#10;..."></textarea>
+        </div>
+      </div>
+
+      <div id="cv-file-mode" class="hidden">
+        <div class="field">
+          <label>Archivo</label>
+          <div class="drop" id="drop-area">
+            <input type="file" accept=".pdf,.doc,.docx,.txt" id="file-input" onchange="handleFile(event)">
+            <div class="drop-icon">📎</div>
+            <div class="drop-text"><strong>Elegí un archivo</strong> o arrastralo acá<br><span style="font-size:12px;color:var(--text3)">PDF, Word o TXT</span></div>
+          </div>
+          <div id="file-name" class="hidden" style="margin-top:8px;font-size:13px;color:var(--text2);"></div>
+        </div>
+        <div class="field">
+          <label>Texto del CV (podés editar)</label>
+          <textarea id="cv-file-text" placeholder="El texto de tu CV aparecerá acá..."></textarea>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-pink" id="btn-analizar" onclick="analizarCV()">Analizar CV →</button>
+        <div id="cv-load" class="loading hidden">
+          <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+          Analizando tu perfil...
+        </div>
+      </div>
+    </div>
+
+    <div id="cv-result" class="hidden">
+      <div class="card">
+        <div class="card-title">Tu perfil</div>
+        <div class="profile-band" id="profile-band"></div>
+        <div class="chips" id="cv-skills"></div>
+        <button class="btn btn-pink" onclick="goTo(2)">Configurar preferencias →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ STEP 2 ══════════ -->
+  <div id="s2" class="hidden">
+    <div class="card">
+      <div class="card-title">Dónde y cómo buscar</div>
+      <div class="card-sub">Tus preferencias se guardan automáticamente en este dispositivo.</div>
+
+      <div class="field">
+        <label>Portales de trabajo</label>
+        <div class="portal-grid" id="portal-grid"></div>
+      </div>
+
+      <div class="prefs-row">
+        <div class="field">
+          <label>Provincia</label>
+          <select id="p-prov">
+            <option value="">Toda Argentina</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="Ciudad de Buenos Aires">CABA</option>
+            <option value="Córdoba">Córdoba</option>
+            <option value="Santa Fe">Santa Fe</option>
+            <option value="Mendoza">Mendoza</option>
+            <option value="Tucumán">Tucumán</option>
+            <option value="Rosario">Rosario</option>
+            <option value="remoto">Solo remoto</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Publicadas hace</label>
+          <select id="p-fecha">
+            <option value="">Sin filtro</option>
+            <option value="1">Último día</option>
+            <option value="7" selected>Última semana</option>
+            <option value="14">Últimas 2 semanas</option>
+            <option value="30">Último mes</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:4px;">
+        <label>Modalidad</label>
+        <select id="p-modalidad">
+          <option value="">Cualquiera</option>
+          <option value="remoto">Remoto</option>
+          <option value="presencial">Presencial</option>
+          <option value="hibrido">Híbrido</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-pink" onclick="guardarPrefs()">Guardar y ver puestos →</button>
+        <button class="btn btn-sm" onclick="goTo(1)">← Volver</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ STEP 3 ══════════ -->
+  <div id="s3" class="hidden">
+    <div class="card">
+      <div class="card-title">Puestos que matchean tu perfil</div>
+      <div class="card-sub">Hacé clic en cualquier título para buscarlo directo en el portal.</div>
+
+      <div style="margin-bottom:6px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text3);">Títulos recomendados</div>
+      <div class="chips" id="title-chips"></div>
+
+      <div style="margin-top:20px;" id="portal-results"></div>
+
+      <div class="btn-row" style="margin-top:20px;">
+        <button class="btn btn-pink" onclick="goTo(4)">Analizar una oferta →</button>
+        <button class="btn btn-sm" onclick="goTo(1)">← Nuevo CV</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ STEP 4 ══════════ -->
+  <div id="s4" class="hidden">
+    <div class="card">
+      <div class="card-title">Analizá una oferta</div>
+      <div class="card-sub">Copiá y pegá la descripción completa del puesto que te interesa.</div>
+
+      <div class="field">
+        <label>Descripción de la oferta</label>
+        <textarea id="oferta-input" style="min-height:200px;" placeholder="Buscamos Diseñadora UX/UI con experiencia en...&#10;&#10;Requisitos:&#10;- Figma, Adobe XD...&#10;..."></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-pink" id="btn-score" onclick="calcularScore()">Calcular score ATS →</button>
+        <div id="score-load" class="loading hidden">
+          <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+          Calculando match...
+        </div>
+        <button class="btn btn-sm" onclick="goTo(3)">← Ver puestos</button>
+      </div>
+    </div>
+
+    <div id="score-result" class="hidden">
+      <div class="card">
+        <div class="score-block">
+          <div class="score-ring">
+            <svg viewBox="0 0 82 82" width="82" height="82">
+              <circle class="ring-bg" cx="41" cy="41" r="34"/>
+              <circle class="ring-fill" id="ring-arc" cx="41" cy="41" r="34" stroke-dasharray="0 213.6"/>
+            </svg>
+            <div class="score-center">
+              <span class="score-n" id="score-n">—</span>
+              <span class="score-pct">%</span>
+            </div>
+          </div>
+          <div class="score-info">
+            <div class="score-verdict" id="score-verdict">—</div>
+            <div class="score-desc" id="score-desc">—</div>
+          </div>
+        </div>
+
+        <div class="tip-box" id="tip-box"></div>
+
+        <div style="margin-bottom:14px;">
+          <div class="kw-label">Keywords que tenés ✓</div>
+          <div class="chips" id="kw-match"></div>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div class="kw-label">Keywords que faltan</div>
+          <div class="chips" id="kw-miss"></div>
+        </div>
+
+        <div id="cv-tips-section" class="hidden" style="margin-bottom:20px;">
+          <div class="kw-label" style="margin-bottom:10px;">Qué podés agregar a tu CV para subir el score</div>
+          <div id="cv-tips-list"></div>
+        </div>
+
+        <div>
+          <div class="kw-label" style="margin-bottom:10px;">¿Por qué importa el score ATS?</div>
+          <div class="stat-item"><span class="stat-ico">📊</span>Más del 75% de las empresas medianas y grandes en Argentina usan sistemas ATS para filtrar CVs antes de que lleguen a un reclutador humano.</div>
+          <div class="stat-item"><span class="stat-ico">⚡</span>Un CV con 70%+ de match tiene 3× más probabilidades de pasar el filtro automático, según estudios de Jobscan y TalentWorks.</div>
+          <div class="stat-item"><span class="stat-ico">🎯</span>Agregar las keywords faltantes al CV — si tenés esa experiencia — puede subir tu score considerablemente sin mentir.</div>
+        </div>
+
+        <div class="btn-row" style="margin-top:20px;">
+          <button class="btn btn-pink" onclick="nuevaOferta()">Analizar otra oferta</button>
+          <button class="btn btn-sm" onclick="goTo(1)">Nuevo CV</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    CV-matcHER · sin registro, sin publicidades, tus datos quedan en tu dispositivo.<br>
+    Powered by <a href="https://anthropic.com" target="_blank">Claude AI</a> · Hecho con ♥ en Argentina
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── PORTALES ───────────────────────────────────────────
+const PORTALES = [
+  { id:'zonajobs', n:'Zona Jobs',
+    url:(t,pv,d)=>`https://www.zonajobs.com.ar/empleos-busqueda.html?q=${enc(t)}${pv?'&l='+enc(pv):''}` },
+  { id:'bumeran',  n:'Bumeran',
+    url:(t,pv,d)=>`https://www.bumeran.com.ar/empleos-busqueda-${slug(t)}.html` },
+  { id:'linkedin', n:'LinkedIn',
+    url:(t,pv,d)=>`https://www.linkedin.com/jobs/search/?keywords=${enc(t)}&location=Argentina${d?'&f_TPR=r'+d*86400:''}` },
+  { id:'indeed',   n:'Indeed AR',
+    url:(t,pv,d)=>`https://ar.indeed.com/jobs?q=${enc(t)}&l=${enc('Argentina'+(pv?' '+pv:''))}${d?'&fromage='+d:''}` },
+  { id:'computrabajo', n:'Computrabajo',
+    url:(t,pv,d)=>`https://www.computrabajo.com.ar/ofertas-de-trabajo/ofertas-de-${slug(t)}` },
+  { id:'getonboard',   n:'Get on Board',
+    url:(t,pv,d)=>`https://www.getonbrd.com/jobs?q=${enc(t)}` },
+  { id:'workana',      n:'Workana',
+    url:(t,pv,d)=>`https://www.workana.com/jobs?language=es&search=${enc(t)}` },
+  { id:'argprograma',  n:'Arg. Programa',
+    url:(t,pv,d)=>`https://www.argentina.gob.ar/economia/programar` },
+];
+
+const enc  = s => encodeURIComponent(s);
+const slug = s => s.toLowerCase().replace(/[^a-z0-9\s]/g,'').trim().replace(/\s+/g,'-');
+
+// ─── STATE ──────────────────────────────────────────────
+let S = {
+  cvText: '',
+  analisis: null,
+  prefs: { portales:['zonajobs','bumeran','linkedin','indeed','computrabajo'], prov:'', fecha:'7', modalidad:'' }
+};
+
+// ─── INIT ────────────────────────────────────────────────
+function init() {
+  try { const p = localStorage.getItem('cvmatch_prefs'); if(p) S.prefs = {...S.prefs,...JSON.parse(p)}; } catch(e){}
+  try { const cv = localStorage.getItem('cvmatch_cv'); if(cv) document.getElementById('cv-input').value = cv; } catch(e){}
+  renderPortalGrid();
+  applyPrefs();
+
+  // drag/drop
+  const da = document.getElementById('drop-area');
+  ['dragenter','dragover'].forEach(e => da.addEventListener(e, ev=>{ ev.preventDefault(); da.classList.add('over'); }));
+  ['dragleave','drop'].forEach(e => da.addEventListener(e, ev=>{ ev.preventDefault(); da.classList.remove('over'); }));
+  da.addEventListener('drop', ev => {
+    const f = ev.dataTransfer.files[0];
+    if(f) handleFile({ target:{ files: ev.dataTransfer.files } });
+  });
+}
+
+// ─── NAVIGATION ─────────────────────────────────────────
+function goTo(n) {
+  [1,2,3,4].forEach(i => {
+    document.getElementById('s'+i).classList.toggle('hidden', i!==n);
+    const tab = document.getElementById('tab-'+i);
+    tab.classList.remove('active','done');
+    if(i < n) tab.classList.add('done');
+    if(i === n) tab.classList.add('active');
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ─── CV MODE ─────────────────────────────────────────────
+function setCVMode(mode, btn) {
+  document.querySelectorAll('.itab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('cv-text-mode').classList.toggle('hidden', mode==='file');
+  document.getElementById('cv-file-mode').classList.toggle('hidden', mode==='text');
+}
+
+// ─── FILE ────────────────────────────────────────────────
+function handleFile(e) {
+  const f = e.target.files[0]; if(!f) return;
+  document.getElementById('file-name').textContent = '📎 '+f.name;
+  document.getElementById('file-name').classList.remove('hidden');
+  const r = new FileReader();
+  r.onload = ev => {
+    if(f.type==='text/plain') {
+      document.getElementById('cv-file-text').value = ev.target.result;
+    } else {
+      document.getElementById('cv-file-text').placeholder = 'Archivo detectado. Copiá el texto del documento y pegalo acá para mejor análisis.';
+    }
+  };
+  f.type==='text/plain' ? r.readAsText(f) : r.readAsDataURL(f);
+}
+
+// ─── API CALL (via Netlify function) ─────────────────────
+async function callClaude(messages, max_tokens=1200) {
+  const res = await fetch('/.netlify/functions/claude', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages, max_tokens })
+  });
+  if(!res.ok) {
+    const err = await res.json().catch(()=>({}));
+    throw new Error(err.error || 'Error '+res.status);
+  }
+  const data = await res.json();
+  if(data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+  return data.content.map(b=>b.text||'').join('');
+}
+
+function parseJSON(txt) {
+  const c = txt.replace(/```json|```/g,'').trim();
+  const a = c.indexOf('{'), b = c.lastIndexOf('}');
+  if(a<0||b<0) throw new Error('No JSON');
+  return JSON.parse(c.slice(a,b+1));
+}
+
+// ─── STEP 1: ANALIZAR CV ─────────────────────────────────
+async function analizarCV() {
+  const t = document.getElementById('cv-input').value.trim();
+  const ft = document.getElementById('cv-file-text').value.trim();
+  const cv = t||ft;
+  if(!cv||cv.length<50) { toast('Pegá el contenido de tu CV primero'); return; }
+
+  S.cvText = cv;
+  try { localStorage.setItem('cvmatch_cv', cv.substring(0,5000)); } catch(e){}
+
+  setLoad('cv-load',true); document.getElementById('btn-analizar').disabled=true;
+
+  try {
+    const raw = await callClaude([{ role:'user', content:
+      `Analizá este CV argentino. Respondé SOLO con JSON válido, sin markdown ni texto extra.
+
+{
+  "nombre": "nombre del candidato o 'Candidato' si no aparece",
+  "resumen": "una oración que describe el perfil (máx 18 palabras)",
+  "nivel": "Junior | Semi-Senior | Senior | No especificado",
+  "titulos": ["Título 1","Título 2","Título 3","Título 4","Título 5","Título 6"],
+  "skills": ["skill1","skill2","skill3","skill4","skill5","skill6","skill7","skill8"]
+}
+
+Reglas:
+- titulos: 5 a 7 puestos REALES que se buscan en portales argentinos, apropiados al perfil
+- skills: las 6-8 más relevantes del CV
+- nivel y resumen en español
+
+CV:
+${cv.substring(0,3500)}` }], 900);
+
+    const a = parseJSON(raw);
+    S.analisis = a;
+
+    // render profile band
+    const ini = (a.nombre||'C').charAt(0).toUpperCase();
+    document.getElementById('profile-band').innerHTML = `
+      <div class="profile-avatar">${ini}</div>
+      <div>
+        <div class="profile-name">${a.nombre||'Tu perfil'}</div>
+        <div class="profile-level">${a.nivel} · ${a.resumen}</div>
+      </div>`;
+    document.getElementById('cv-skills').innerHTML =
+      a.skills.map(s=>`<span class="chip chip-lav">${s}</span>`).join('');
+    document.getElementById('cv-result').classList.remove('hidden');
+    toast('Perfil analizado ✓');
+  } catch(e) {
+    console.error(e);
+    toast('Error: '+e.message);
+  }
+  setLoad('cv-load',false); document.getElementById('btn-analizar').disabled=false;
+}
+
+// ─── STEP 2: PORTALES ────────────────────────────────────
+function renderPortalGrid() {
+  document.getElementById('portal-grid').innerHTML = PORTALES.map(p=>`
+    <div class="portal-pill ${S.prefs.portales.includes(p.id)?'on':''}" id="pp-${p.id}" onclick="togglePortal('${p.id}')">
+      <div class="pcheck">${S.prefs.portales.includes(p.id)?'✓':''}</div>${p.n}
+    </div>`).join('');
+}
+
+function togglePortal(id) {
+  const i = S.prefs.portales.indexOf(id);
+  if(i>-1) { if(S.prefs.portales.length<=1){toast('Necesitás al menos 1 portal');return;} S.prefs.portales.splice(i,1); }
+  else S.prefs.portales.push(id);
+  renderPortalGrid();
+}
+
+function applyPrefs() {
+  document.getElementById('p-prov').value = S.prefs.prov||'';
+  document.getElementById('p-fecha').value = S.prefs.fecha||'7';
+  document.getElementById('p-modalidad').value = S.prefs.modalidad||'';
+}
+
+function guardarPrefs() {
+  S.prefs.prov = document.getElementById('p-prov').value;
+  S.prefs.fecha = document.getElementById('p-fecha').value;
+  S.prefs.modalidad = document.getElementById('p-modalidad').value;
+  try { localStorage.setItem('cvmatch_prefs', JSON.stringify(S.prefs)); } catch(e){}
+  toast('Preferencias guardadas ✓');
+  buildStep3();
+}
+
+// ─── STEP 3: PUESTOS ─────────────────────────────────────
+function buildStep3() {
+  if(!S.analisis){ toast('Primero analizá tu CV'); goTo(1); return; }
+  const { titulos } = S.analisis;
+  const { portales, prov, fecha } = S.prefs;
+
+  document.getElementById('title-chips').innerHTML =
+    titulos.map(t=>`<span class="chip chip-pink">✦ ${t}</span>`).join('');
+
+  document.getElementById('portal-results').innerHTML =
+    PORTALES.filter(p=>portales.includes(p.id)).map(p=>`
+      <div class="portal-row">
+        <div class="portal-row-name">${p.n}</div>
+        <div class="portal-links">
+          ${titulos.map(t=>`<a href="${p.url(t,prov,fecha)}" target="_blank" rel="noopener" class="plink">${t} ↗</a>`).join('')}
+        </div>
+      </div>`).join('');
+
+  goTo(3);
+}
+
+// ─── STEP 4: SCORE ───────────────────────────────────────
+async function calcularScore() {
+  const oferta = document.getElementById('oferta-input').value.trim();
+  if(!oferta||oferta.length<80){ toast('Pegá la descripción completa de la oferta'); return; }
+  if(!S.cvText){ toast('Primero analizá tu CV en el paso 1'); return; }
+
+  setLoad('score-load',true); document.getElementById('btn-score').disabled=true;
+  document.getElementById('score-result').classList.add('hidden');
+
+  try {
+    const raw = await callClaude([{ role:'user', content:
+      `Sos un sistema ATS experto y coach de carrera. Analizá la compatibilidad entre el CV y la oferta.
+Respondé SOLO con JSON válido, sin markdown.
+
+{
+  "score": número 0-100,
+  "veredicto": "Muy recomendado postularse" | "Postularse con ajustes" | "Perfil parcial" | "No recomendado por ahora",
+  "descripcion": "1-2 oraciones directas y útiles explicando el resultado",
+  "consejo": "1 consejo concreto y accionable (1 oración)",
+  "keywords_match": ["kw1","kw2","kw3"],
+  "keywords_faltantes": ["kw1","kw2","kw3"],
+  "cv_tips": [
+    { "titulo": "nombre corto del tip", "descripcion": "cómo aplicarlo al CV basándote en la experiencia real que ya tiene el candidato — sé específico, no genérico" }
+  ]
+}
+
+Reglas para cv_tips:
+- Máximo 4 tips
+- Solo sugerí cosas que el candidato PODRÍA tener según su experiencia ya existente en el CV (no inventar experiencia)
+- Ej: si tiene experiencia en diseño web → "Agregá 'responsive design' como skill si la aplicaste" 
+- Si el score ya es 85+ ponés máximo 2 tips pequeños
+- Sé directo y accionable, en segunda persona informal (vos)
+
+Score: 85-100 excelente | 70-84 muy bueno | 55-69 parcial | 40-54 bajo | 0-39 muy diferente
+
+CV:
+${S.cvText.substring(0,2500)}
+
+OFERTA:
+${oferta.substring(0,2500)}` }], 1200);
+
+    renderScore(parseJSON(raw));
+    document.getElementById('score-result').classList.remove('hidden');
+  } catch(e) {
+    console.error(e);
+    toast('Error: '+e.message);
+  }
+  setLoad('score-load',false); document.getElementById('btn-score').disabled=false;
+}
+
+function renderScore(r) {
+  const s = Math.max(0,Math.min(100,Math.round(r.score)));
+  const circ = 2*Math.PI*34;
+  const color = s>=70 ? 'var(--green)' : s>=50 ? 'var(--amber)' : 'var(--red)';
+
+  document.getElementById('ring-arc').style.stroke = color;
+  setTimeout(()=>{
+    const d=(s/100)*circ;
+    document.getElementById('ring-arc').style.strokeDasharray=`${d.toFixed(1)} ${(circ-d).toFixed(1)}`;
+  },60);
+
+  document.getElementById('score-n').textContent = s;
+  document.getElementById('score-n').style.color = color;
+  document.getElementById('score-verdict').textContent = r.veredicto;
+  document.getElementById('score-verdict').style.color = color;
+  document.getElementById('score-desc').textContent = r.descripcion||'';
+  document.getElementById('tip-box').innerHTML = `<strong>💡 Consejo:</strong> ${r.consejo}`;
+  document.getElementById('kw-match').innerHTML = (r.keywords_match||[]).map(k=>`<span class="chip chip-green">✓ ${k}</span>`).join('');
+  document.getElementById('kw-miss').innerHTML = (r.keywords_faltantes||[]).map(k=>`<span class="chip chip-red">✗ ${k}</span>`).join('');
+
+  const tips = r.cv_tips||[];
+  const tipsSection = document.getElementById('cv-tips-section');
+  const tipsList = document.getElementById('cv-tips-list');
+  if(tips.length > 0) {
+    tipsList.innerHTML = tips.map(t=>`
+      <div class="tip-item">
+        <div class="tip-item-icon">✏️</div>
+        <div class="tip-item-body">
+          <div class="tip-item-title">${t.titulo}</div>
+          <div class="tip-item-desc">${t.descripcion}</div>
+        </div>
+      </div>`).join('');
+    tipsSection.classList.remove('hidden');
+  } else {
+    tipsSection.classList.add('hidden');
+  }
+}
+
+function nuevaOferta() {
+  document.getElementById('oferta-input').value='';
+  document.getElementById('score-result').classList.add('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── HELPERS ─────────────────────────────────────────────
+function setLoad(id,on) { document.getElementById(id).classList.toggle('hidden',!on); }
+function toast(msg) {
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+init();
+</script>
+</body>
+</html>
