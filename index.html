@@ -696,6 +696,8 @@ function handleFile(e) {
 
 // ─── API CALL (via Netlify function) ─────────────────────
 async function callClaude(messages, max_tokens=1200) {
+  console.log("VERSION NUEVA 123");
+
   const res = await fetch('/.netlify/functions/claude', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
